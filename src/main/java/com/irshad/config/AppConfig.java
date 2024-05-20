@@ -1,11 +1,11 @@
 package com.irshad.config;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 import java.util.Arrays;
 import java.util.Collections;
 
 import org.springframework.context.annotation.Bean;
-
-import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -19,8 +19,11 @@ import org.springframework.web.cors.CorsConfigurationSource;
 
 import com.irshad.constant.JwtConstant;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.servers.Server;
 import jakarta.servlet.http.HttpServletRequest;
 
+@OpenAPIDefinition(servers = {@Server(url = "/", description = "Default Server URL")})
 @Configuration
 @EnableWebSecurity
 public class AppConfig {
